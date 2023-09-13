@@ -3,23 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.5.1",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
+    "@reduxjs/toolkit": "^1.5.1", 
+    "@testing-library/jest-dom": "^5.11.6", 
+    "@testing-library/react": "^11.2.2", 
     "@testing-library/user-event": "^13.5.0",
-    "antd": "^4.16.13",
-    "axios": "^0.24.0",
-    "moment": "^2.29.1",
-    "react": "^18.0.0",
+    "antd": "^4.16.13", 
+    "axios": "^0.24.0", 
+    "moment": "^2.29.1", 
+    "react": "^18.0.0", 
     "react-bootstrap": "^2.0.0-beta.7",
-    "react-dom": "^18.0.0",
-    "react-icons": "^4.2.0",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "^6.0.0-beta.0",
-    "react-scripts": "5.0.0",
-    "redux": "^4.1.2",
-    "remixicon": "^3.0.0",
-    "web-vitals": "^1.1.1"
+    "react-dom": "^18.0.0", 
+    "react-icons": "^4.2.0", 
+    "react-redux": "^7.2.6", 
+    "react-router-dom": "^6.0.0-beta.0", 
+    "react-scripts": "5.0.0", 
+    "redux": "^4.1.2", 
+    "remixicon": "^3.0.0", 
+    "web-vitals": "^1.1.1" 
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,9 +48,5 @@
   "proxy": "https://backend-blood-unity-dev.onrender.com",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "author": "",
-  "license": "ISC",
-  "resolutions": {
-    "react": "^18.0.0",
-    "redux": "^4.1.2"
-  }
+  "license": "ISC"
 }
