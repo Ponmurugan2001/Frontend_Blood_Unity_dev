@@ -1,0 +1,46 @@
+.car-wheel-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .wheel {
+    width: 100px;
+    height: 100px;
+    background-color: #333;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 2s linear infinite;
+  }
+  
+  .rim {
+    width: 80px;
+    height: 80px;
+    background-color: #aaa;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .hub {
+    width: 20px;
+    height: 20px;
+    background-color: #555;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

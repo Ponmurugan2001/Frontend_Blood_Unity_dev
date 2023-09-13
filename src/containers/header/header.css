@@ -1,0 +1,18 @@
+.gradient_text_head {
+/* Replace 10px with your desired top padding value */
+  padding-right: 30px; /* Replace 20px with your desired right padding value */
+  padding-bottom: 1px; /* Replace 15px with your desired bottom padding value */
+  padding-left: 30px; /*
+    background: -webkit-linear-gradient(#f71c10, #e43264); /* For Safari */
+        background: -o-linear-gradient(#f71c10, #e43264); /* For Opera */
+        background: -moz-linear-gradient(#f71c10, #e43264); /* For Firefox */
+        background: linear-gradient(#f71c10, #e43264); /* Standard syntax */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+  font-family: 'Cocogoose', sans-serif;
+    
+    font-weight:1000;
+    font-size:100px;
+    line-height: 100px;
+}

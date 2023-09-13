@@ -1,0 +1,22 @@
+.card-container {
+    /* Define the width of your container */
+    
+    
+    /* Add some padding inside the container */
+    padding: 20px;
+    
+    /* Define the background color */
+    background-color:white; /* You can replace this with your desired color */
+    
+    /* Add a box shadow for depth and visual appeal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Customize as needed */
+    
+    /* Add a border for separation and style */
+    border: 1px solid #e0e0e0; /* Customize border color and width */
+    
+    /* Center the content horizontally in the container */
+    margin: 0 auto;
+    
+    /* Optionally, add some rounded corners for a softer look */
+    border-radius: 2px; /* Customize as needed */
+}

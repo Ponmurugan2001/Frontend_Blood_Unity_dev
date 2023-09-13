@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+  --font-family: 'Manrope', sans-serif;
+  --gradient-text: linear-gradient(89.97deg, #f71c10 1.84%, #e6b821 102.67%);
+  --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+  --color-bg: #101010;
+  --color-footer : #031B34;
+  --color-blog: #042c54;
+  --color-text: #81AFDD;
+  --color-subtext: #FF8A71;
+}
+
+*{
+    box-sizing:border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+.App{
+  background-color: #101010;
+    
+}
+a {
+    color: unset;
+    text-decoration: none;
+}
+            
+.gradient_text{
+    background: var(--gradient-text);
+    background-clip:text;
+    -webkit-background-clip:text ;
+    -webkit-text-fill-color: transparent;
+}
+.section_padding{
+    padding: 4rem 6rem;
+}
+.section_margin{
+    margin: 4rem 6rem;
+}
+.scale-up-center {
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+ @-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+
+@media screen and (max-width: 700px){
+    .section_padding{
+        padding: 4rem;
+    }
+   .section_margin{
+    margin: 4rem;
+   }
+}
+@media screen and (max-width: 550px){
+    .section_padding{
+        padding: 4rem 2rem ;
+    }
+   .section_margin{
+    margin: 4rem 2rem;
+   }
+}

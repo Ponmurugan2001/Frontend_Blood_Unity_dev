@@ -1,0 +1,51 @@
+.what_blood_mng{
+    display:flex;
+    
+    
+    background-color:#191919;
+
+}
+.what_blood_mng img{
+    padding-left:70px;
+    padding-top:30px;
+    padding-bottom:30px;
+    height: 40rem;
+    width: 35rem;
+    border-radius:8%;
+}
+.about{
+    padding-top:4rem ;
+    padding-left: 6rem;
+    padding-right: 8rem;
+}
+.about h1{
+    color: white;
+    font-family:var(--font-family);
+    font-size:70px;
+    font-weight: 1000;
+}
+.about p{
+    color: darkgrey;
+    text-align: justify;
+    font-family: var(--font-family);
+    font-size: 20px;
+}
+.about_sub h2{
+color: white;
+font-family:var(--font-family); 
+
+}
+.about_sub{
+    display:flex;
+    justify-content:space-evenly;
+    
+    
+}
+.about_sub1{
+    padding-right: 2rem;
+    padding-top: 4rem;
+}
+.about_sub2{
+    
+    padding-top: 4rem;
+}

@@ -1,0 +1,13 @@
+
+.bg{
+    background-image: url("../assets/red.png");
+    background-size: cover;
+}
+.container {
+    background: rgba(255, 255, 255, 0.15);; /* Gray background with 50% opacity */
+    box-shadow: 0 8px 32px 0 rgba(235, 22, 61, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    padding: 50px;
+}

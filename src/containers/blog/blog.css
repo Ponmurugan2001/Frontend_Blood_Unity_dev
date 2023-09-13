@@ -1,0 +1,26 @@
+.quote {
+  padding-top: 4rem;
+}
+.quote h1 {
+  padding-left: 2rem;
+  font-size: 60px;
+  text-align: center;
+
+  justify-content: center;
+  font-family:Brush Script MT, Brush Script Std, cursive;
+  background: -moz-radial-gradient(circle at 50% 50%, rgba(247, 28, 16, 1) 0%, rgba(243, 15, 82, 1) 100%);
+
+    /* safari 5.1+,chrome 10+ */
+    background: -webkit-radial-gradient(circle at 50% 50%, rgba(247, 28, 16, 1) 0%, rgba(243, 15, 82, 1) 100%);
+
+    /* opera 11.10+ */
+    background: -o-radial-gradient(circle at 50% 50%, rgba(247, 28, 16, 1) 0%, rgba(243, 15, 82, 1) 100%);
+
+    /* ie 10+ */
+    background: -ms-radial-gradient(circle at 50% 50%, rgba(247, 28, 16, 1) 0%, rgba(243, 15, 82, 1) 100%);
+
+    /* global 92%+ browsers support */
+    background: radial-gradient(circle at 50% 50%, rgba(247, 28, 16, 1) 0%, rgba(243, 15, 82, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
