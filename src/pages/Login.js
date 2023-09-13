@@ -13,7 +13,9 @@ function Login() {
     const onFinish=async(values)=>{
         try {
             dispatch(showLoading())
-            const response = await axios.post("/api/user/login",values);
+              const response = await axios.post("/api/user/login", values, {
+                withCredentials: true, // Include cookies and credentials
+               });
             dispatch(hideLoading())
             if (response.data.success)
             {message.success(response.data.message);
