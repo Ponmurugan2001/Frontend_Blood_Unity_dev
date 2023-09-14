@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 
 
-
+const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
 
 function Register() {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function Register() {
     const onFinish = async (values) => {
       try {
         dispatch(showLoading());
-        const response = await axios.post("/api/user/register", values);
+        const response = await axios.post(REACT_BASE_URL+"/api/user/register", values);
         dispatch(hideLoading());
         if (response.data.success) {
           message.success(response.data.message);
