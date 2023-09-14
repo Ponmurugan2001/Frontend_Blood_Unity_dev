@@ -11,11 +11,11 @@ function ProtectedRoute({ children }) {
   const { loading } = useSelector((state) => state.alerts);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
   const getUser = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.get("/api/user/current-user", {
+      const response = await axios.get(REACT_BASE_URL+"/api/user/current-user", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

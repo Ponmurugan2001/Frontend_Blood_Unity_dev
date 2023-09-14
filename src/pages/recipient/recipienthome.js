@@ -22,10 +22,10 @@ function RecipientHome() {
   const params = useParams();
   const RecipientId = user?._id;
   console.log( RecipientId);
-
+  const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
   const profile = async () => {
     try {
-      const response = await axios.get(`/api/user/recipient/profile/get-recipient-Profile/${RecipientId}`, {
+      const response = await axios.get(REACT_BASE_URL+`/api/user/recipient/profile/get-recipient-Profile/${RecipientId}`, {
         
          
           

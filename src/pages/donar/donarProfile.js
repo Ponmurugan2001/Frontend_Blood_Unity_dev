@@ -57,9 +57,9 @@ function DonorProfile() {
         message.error("Please Provide All Fields");
         return;
       }
-
+      const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com";
       const response = await axios.post(
-        "/api/user/profile/create-Donor-Profile",
+        REACT_BASE_URL + "/api/user/profile/create-Donor-Profile",
         {
           donor: user?._id,
           ...values,
@@ -168,7 +168,7 @@ function DonorProfile() {
             <Select.Option value="NotAvailable">Not Available</Select.Option>
           </Select>
         </Form.Item>
-        
+
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit

@@ -17,9 +17,10 @@ const Analytics = () => {
     "#96DED1",
   ];
   //GET BLOOD GROUP DATA
+  const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
   const getBloodGroupData = async () => {
     try {
-      const {data} = await axios.get("/api/user/analytics/bloodGroups-data", {
+      const {data} = await axios.get(REACT_BASE_URL+"/api/user/analytics/bloodGroups-data", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

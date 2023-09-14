@@ -17,14 +17,14 @@ function OrganisationInvent() {
 
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
-
+  const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
   const handleModalSubmit = async () => {
     try {
       if (!bloodGroup || !quantity) {
         return alert("Please Provide All Fields");
       }
       const response = await axios.post(
-        "/api/user/inventory/create-inventory",
+        REACT_BASE_URL+"/api/user/inventory/create-inventory",
         {
           organisation: user?._id,
           inventoryType,
@@ -50,7 +50,7 @@ function OrganisationInvent() {
 
   const getBloodRecords = async () => {
     try {
-      const response = await axios.get("/api/user/inventory/get-inventory", {
+      const response = await axios.get(REACT_BASE_URL+"/api/user/inventory/get-inventory", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
