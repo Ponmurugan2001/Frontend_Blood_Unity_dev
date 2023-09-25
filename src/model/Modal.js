@@ -16,7 +16,7 @@ const Modal = () => {
       if (!bloodGroup || !quantity) {
         return alert("Please Provide All Fields");
       }
-      const {data} = await axios.post(REACT_BASE_URL+"/api/user/inventory/create-inventory", {
+      const {data} = await axios.post(process.env.REACT_APP_BASE_URL+"/api/user/inventory/create-inventory", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

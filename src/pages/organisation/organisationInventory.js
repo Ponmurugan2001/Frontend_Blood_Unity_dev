@@ -24,7 +24,7 @@ function OrganisationInvent() {
         return alert("Please Provide All Fields");
       }
       const response = await axios.post(
-        REACT_BASE_URL+"/api/user/inventory/create-inventory",
+        process.env.REACT_APP_BASE_URL+"/api/user/inventory/create-inventory",
         {
           organisation: user?._id,
           inventoryType,
@@ -50,7 +50,7 @@ function OrganisationInvent() {
 
   const getBloodRecords = async () => {
     try {
-      const response = await axios.get(REACT_BASE_URL+"/api/user/inventory/get-inventory", {
+      const response = await axios.get(process.env.REACT_APP_BASE_URL+"/api/user/inventory/get-inventory", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

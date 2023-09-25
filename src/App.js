@@ -1,4 +1,4 @@
-//import { Button, Space } from 'antd';
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./resources/global.css";
 import Home from "./pages/Home";
@@ -8,7 +8,6 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
 import Spinner from "./Components/spinner";
 import { useSelector } from "react-redux";
-
 import Landing from "./Landing";
 import Analytics from "./pages/organisation/organisationAnalytics";
 import OrganisationInvent from "./pages/organisation/organisationInventory";
@@ -17,6 +16,9 @@ import DonarProfile from "./pages/donar/donarProfile";
 import DonorHome from "./pages/donar/donorhome";
 import RecipientProfile from "./pages/recipient/recipientprofile";
 import RecipientHome from "./pages/recipient/recipienthome";
+import RecipientBloodRequest from "./pages/recipient/recipientbloodrequest";
+import RecipientBloodStatus from "./pages/recipient/recipientStatus";
+import DonorBloodRequest from "./pages/donar/donorbloodrequest";
 function App() {
   const { loading } = useSelector((state) => state.alerts);
   return (
@@ -45,6 +47,15 @@ function App() {
             }
           />
           <Route
+            path="/donar/bloodRequest"
+            element={
+              <ProtectedRoute>
+                <DonorBloodRequest/>
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
             path="/recipient/home"
             element={
               <ProtectedRoute>
@@ -61,6 +72,25 @@ function App() {
             }
             
           />
+          <Route
+            path="/recipient/bloodRequest"
+            element={
+              <ProtectedRoute>
+                <RecipientBloodRequest/>
+              </ProtectedRoute>
+            }
+            
+          />
+           <Route
+            path="/recipient/status"
+            element={
+              <ProtectedRoute>
+                <RecipientBloodStatus/>
+              </ProtectedRoute>
+            }
+            
+          />
+          
 
         
           <Route

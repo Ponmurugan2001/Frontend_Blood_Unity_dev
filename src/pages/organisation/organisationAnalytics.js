@@ -20,7 +20,7 @@ const Analytics = () => {
   const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
   const getBloodGroupData = async () => {
     try {
-      const {data} = await axios.get(REACT_BASE_URL+"/api/user/analytics/bloodGroups-data", {
+      const {data} = await axios.get(process.env.REACT_APP_BASE_URL+"/api/user/analytics/bloodGroups-data", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -42,7 +42,7 @@ const Analytics = () => {
   //get function
   const getBloodRecords = async () => {
     try {
-      const {data} = await axios.get("/api/user/inventory/get-recent-inventory", {
+      const {data} = await axios.get(process.env.REACT_APP_BASE_URL+"/api/user/inventory/get-recent-inventory", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

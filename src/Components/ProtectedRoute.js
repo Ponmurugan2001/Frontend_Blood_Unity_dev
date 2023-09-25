@@ -15,7 +15,7 @@ function ProtectedRoute({ children }) {
   const getUser = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.get(REACT_BASE_URL+"/api/user/current-user", {
+      const response = await axios.get(process.env.REACT_APP_BASE_URL+"/api/user/current-user", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

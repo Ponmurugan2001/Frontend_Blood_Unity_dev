@@ -25,7 +25,7 @@ function DonorHome() {
   const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
   const profile = async () => {
     try {
-      const response = await axios.get(REACT_BASE_URL+`/api/user/profile/get-Donor-Profile/${donorId}`, {
+      const response = await axios.get(process.env.REACT_APP_BASE_URL+`/api/user/profile/get-Donor-Profile/${donorId}`, {
         
          
           
