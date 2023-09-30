@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { setUser } from "../../Redux/userSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 import "./recipientbloodrequest.css";
 import photo from "../../assets/profile.png";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function RecipientBloodRequest() {
+  const { user } = useSelector((state) => state.user);
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedBloodGroup, setSelectedBloodGroup] = useState("All");
   const [selectedLocation, setSelectedLocation] = useState("All");
   const [bookedAppointment, setBookedAppointment] = useState(null);
+  const [flaskemail, setFlaskEmail] = useState('');
+  const [flaskname, setFlaskName] = useState('');
 
   useEffect(() => {
     fetch("http://localhost:9000/api/user/profile/get-Donor-All", {
@@ -41,7 +44,8 @@ function RecipientBloodRequest() {
 
   const filteredProfiles = profiles.filter((profile) => {
     if (
-      (selectedBloodGroup === "All" || profile.bloodGroup === selectedBloodGroup) &&
+      (selectedBloodGroup === "All" ||
+        profile.bloodGroup === selectedBloodGroup) &&
       (selectedLocation === "All" || profile.location === selectedLocation)
     ) {
       return true;
@@ -57,10 +61,33 @@ function RecipientBloodRequest() {
     setSelectedLocation(event.target.value);
   };
 
-  const { user } = useSelector((state) => state.user);
-
   const handleCardClick = async (profile) => {
     try {
+      const updatedFlaskEmail = profile.email;
+      const updatedFlaskName = profile.Name;
+
+      // Update the states
+      setFlaskEmail(updatedFlaskEmail);
+      setFlaskName(updatedFlaskName);
+
+      // Construct emailData here after updating states
+      const emailData = {
+        recipient: updatedFlaskEmail,
+        subject: `${user.name} is in need of blood. Kindly help them.`,
+        message: `Hello ${updatedFlaskName},
+        
+      We have an urgent request for blood donation from ${user.name}. 
+      
+      Their life depends on your kindness and willingness to donate blood. Your contribution can make a significant difference.
+      
+      Thank you for joining Blood Unity! Your commitment to our mission of saving lives through blood donation means the world to us. 
+      
+      Warm regards,
+      
+      Ponmurugan V
+      Blood Unity Team`,
+      };
+
       const response = await axios.post(
         process.env.REACT_APP_BASE_URL + "/api/user/profile/donor-appointment",
         {
@@ -72,13 +99,34 @@ function RecipientBloodRequest() {
       );
 
       if (response.data.success) {
-        window.alert(response.data.message);
+        axios
+        .post("http://localhost:5000/send_email", emailData)
+        .then((response) => {
+          console.log("Email sent successfully:", response.data);
+          toast.success("Email sent successfully", { position: toast.POSITION.TOP_RIGHT });
+      
+          // Check if the response has a 'success' field and it's true
+          if (response.data.success === true) {
+            // Reload the page
+            window.location.reload();
+          }
+          // Handle other cases or display additional messages to the user as needed.
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
+          // Handle the error or display an error message to the user.
+        });
+      
+        toast.success(response.data.message, { position: toast.POSITION.TOP_RIGHT });
+        
       }
     } catch (error) {
-      window.alert("Error booking appointment");
+      toast.error("Error booking appointment", { position: toast.POSITION.TOP_RIGHT });
     }
 
-    setBookedAppointment(`Booked Appointment with ${profile.donor} ${profile.Name}`);
+    setBookedAppointment(
+      `Booked Appointment with ${profile.donor} ${profile.Name}`
+    );
   };
 
   return (
@@ -90,22 +138,16 @@ function RecipientBloodRequest() {
           <select
             id="bloodGroupFilter"
             className="form-control"
-            
             value={selectedBloodGroup}
             onChange={handleBloodGroupChange}
           >
-              <option value="All">All</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
+            <option value="All">All</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            {/* Add more blood group options here */}
           </select>
         </div>
-  
+
         <div className="form-group">
           <label htmlFor="locationFilter">Select Location</label>
           <select
@@ -115,49 +157,11 @@ function RecipientBloodRequest() {
             onChange={handleLocationChange}
           >
             <option value="All">All</option>
-
-<option value="Ariyalur">Ariyalur</option>
-<option value="Chengalpattu">Chengalpattu</option>
-<option value="Chennai">Chennai</option>
-<option value="Coimbatore">Coimbatore</option>
-<option value="Cuddalore">Cuddalore</option>
-<option value="Dharmapuri">Dharmapuri</option>
-<option value="Dindigul">Dindigul</option>
-<option value="Erode">Erode</option>
-<option value="Kallakurichi">Kallakurichi</option>
-<option value="Kanchipuram">Kanchipuram</option>
-<option value="Kanyakumari">Kanyakumari</option>
-<option value="Karur">Karur</option>
-<option value="Krishnagiri">Krishnagiri</option>
-<option value="Madurai">Madurai</option>
-<option value="Mayiladuthurai">Mayiladuthurai</option>
-<option value="Nagapattinam">Nagapattinam</option>
-<option value="Namakkal">Namakkal</option>
-<option value="Nilgiris">Nilgiris</option>
-<option value="Perambalur">Perambalur</option>
-<option value="Pudukkottai">Pudukkottai</option>
-<option value="Ramanathapuram">Ramanathapuram</option>
-<option value="Ranipet">Ranipet</option>
-<option value="Salem">Salem</option>
-<option value="Sivaganga">Sivaganga</option>
-<option value="Tenkasi">Tenkasi</option>
-<option value="Thanjavur">Thanjavur</option>
-<option value="Theni">Theni</option>
-<option value="Thoothukudi">Thoothukudi</option>
-<option value="Tiruchirappalli">Tiruchirappalli</option>
-<option value="Tirunelveli">Tirunelveli</option>
-<option value="Tirupathur">Tirupathur</option>
-<option value="Tiruppur">Tiruppur</option>
-<option value="Tiruvallur">Tiruvallur</option>
-<option value="Tiruvannamalai">Tiruvannamalai</option>
-<option value="Tiruvarur">Tiruvarur</option>
-<option value="Vellore">Vellore</option>
-<option value="Viluppuram">Viluppuram</option>
-<option value="Virudhunagar">Virudhunagar</option>
+            {/* Add more location options here */}
           </select>
         </div>
       </div>
-  
+
       <div className="row">
         {filteredProfiles.map((profile, index) => (
           <div className="col-md-4 mb-4" key={profile._id}>
@@ -190,13 +194,14 @@ function RecipientBloodRequest() {
           </div>
         ))}
       </div>
-  
+
       {bookedAppointment && (
         <div className="alert alert-success mt-3">{bookedAppointment}</div>
       )}
+
+      <ToastContainer autoClose={3000} />
     </div>
   );
-  
 }
 
 export default RecipientBloodRequest;

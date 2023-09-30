@@ -1,12 +1,12 @@
 import React from 'react'
 import { Button, Form, Input, message ,Radio} from 'antd';
 
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import axios from "axios"
 import { useDispatch } from 'react-redux';
 import { hideLoading, showLoading } from '../Redux/alertsSlice';
 import { useState } from 'react';
-
+import { useNavigate } from "react-router-dom";
 
 
 const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
@@ -14,6 +14,7 @@ const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
 function Register() {
     const dispatch = useDispatch();
     const [selectedRole, setSelectedRole] = useState('recipient');
+    let navigate = useNavigate();
   
     const onFinish = async (values) => {
       try {
@@ -22,6 +23,7 @@ function Register() {
         dispatch(hideLoading());
         if (response.data.success) {
           message.success(response.data.message);
+          navigate("/login")
         } else {
           message.error(response.data.message);
         }

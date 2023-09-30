@@ -7,6 +7,7 @@ function Card({ profileElement }) {
   return (
     <div className="card">
       <p>Name: {profileElement.Name}</p>
+      <p>Email Id: {profileElement.email}</p>
       <p>Phone Number: {profileElement.phoneNumber}</p>
       <p>Blood Group: {profileElement.bloodGroup}</p>
       <p>Age: {profileElement.Age}</p>

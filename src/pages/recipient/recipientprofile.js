@@ -98,6 +98,13 @@ function RecipientProfile() {
         >
           <Input />
         </Form.Item>
+        <Form.Item
+          label="Email Id"
+          name="email"
+          rules={[{ required: true, message: 'Please input your email!' }]}
+        >
+          <Input />
+        </Form.Item>
 
         <Form.Item
           label="Phone Number"

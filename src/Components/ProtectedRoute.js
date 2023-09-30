@@ -26,12 +26,12 @@ function ProtectedRoute({ children }) {
         dispatch(setUser(response?.data.user));
       } else {
         localStorage.clear();
-        navigate("/login");
+        navigate("/landing");
       }
     } catch (error) {
       dispatch(hideLoading());
       localStorage.clear();
-      navigate("/login");
+      navigate("/landing");
     }
   };
 
