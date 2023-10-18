@@ -2,13 +2,16 @@
   padding-top: 4rem;
 }
 .quote h1 {
-  padding-left: 2rem;
-  font-size: 60px;
+
+  font-size: 45px;
   text-align: center;
 
   justify-content: center;
-  font-family:Brush Script MT, Brush Script Std, cursive;
-  background: -moz-radial-gradient(circle at 50% 50%, rgba(247, 28, 16, 1) 0%, rgba(243, 15, 82, 1) 100%);
+  font-family:'Poppins','sans-serif';
+  font-style: italic;
+  font-weight: 900;
+  
+  background: -moz-radial-gradient(circle at 50% 50%, #f71c10 0%, #f30f52 100%);
 
     /* safari 5.1+,chrome 10+ */
     background: -webkit-radial-gradient(circle at 50% 50%, rgba(247, 28, 16, 1) 0%, rgba(243, 15, 82, 1) 100%);

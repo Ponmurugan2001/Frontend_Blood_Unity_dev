@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Form, Input, Select, Button, message } from "antd";
+import "./donarprofile.css"
 
 const { Option } = Select;
 
@@ -82,7 +83,7 @@ function DonorProfile() {
   };
 
   return (
-    <div>
+    <div className="donorprofile" >
       <h1>Create Donor Profile</h1>
       <Form
         form={form}

@@ -5,15 +5,22 @@ import { useParams } from 'react-router-dom';
 import "./donorhome.css"
 function Card({ profileElement }) {
   return (
-    <div className="card">
-      <p>Name: {profileElement.Name}</p>
+    <div className="donorcontainer">
+      <div className="donorwrapper">
+        <div className="donorbanner-image"></div>
+        <h1>Profile details</h1>
+        <p>Name: {profileElement.Name}</p>
       <p>Email Id: {profileElement.email}</p>
       <p>Phone Number: {profileElement.phoneNumber}</p>
       <p>Blood Group: {profileElement.bloodGroup}</p>
       <p>Age: {profileElement.Age}</p>
       <p>Location: {profileElement.location}</p>
       <p>Availability: {profileElement.Availability}</p>
+      </div>
+     
+      
     </div>
+   
   );
 }
 
@@ -52,10 +59,10 @@ console.log(M_data)
   }, [user]); 
 
   return( <div>
-    <div className="main">
-  <h1>Profile</h1>
+    <div className="main1">
+  <h1>Donor Profile</h1>
   <div className="card-container">
-    {/* Render a single Card component for the profile element */}
+    
     {M_data ? (
       <Card profileElement={M_data} />
     ) : (

@@ -1,6 +1,62 @@
+/* style.css */
+body{
+    font-family:'Poppins',sans-serif;
+}
+
+  
+.social-icons img{
+    justify-content: space-between !important;
+    align-items: baseline;
+}
+  
+.icon-small {
+    width: 24px !important ;
+    height: 24px !important ;
+    margin-right: 20px;
+  }
+  
+  
+
+
 .copyright{
+    padding-left:20rem ;
     padding-top: 4rem;
-    padding-bottom: 2rem;
-    text-align: center;
+    
+    text-align: justify;
     color: darkgrey;
+}
+.contactContainer{
+    display: flex;
+
+}
+.contactContainer img{
+    height: 500px;
+    width: 750px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+@media (max-width: 800px) {
+    .contactContainer{
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .contactContainer img{
+        height: auto;
+        width: auto;
+        
+       
+    }
+    .copyright{
+        padding-left:8rem ;
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+        text-align: justify;
+        color: darkgrey;
+    }
+    
 }

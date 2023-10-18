@@ -1,0 +1,26 @@
+.donation h2{
+  color: crimson;
+  font-family:'Montserrat';
+  font-weight: 500;
+}
+.donation_box {
+  margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    
+}
+.donation_box img {
+    width: 500px;
+    height: 620px;
+   
+  }
+  .donation_box2 {
+    width: 500px;
+    height: 650px;
+    margin: 20px;
+    background-image: url('.././assets/Donation_Poster_2.jpg');
+    background-size: cover;
+    background-position: center;
+  }

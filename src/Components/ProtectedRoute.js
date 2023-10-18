@@ -6,6 +6,7 @@ import { setUser } from "../Redux/userSlice";
 import { showLoading, hideLoading } from "../Redux/alertsSlice";
 import DefaultLayout from "./DefaultLayout";
 
+
 function ProtectedRoute({ children }) {
   const { user } = useSelector((state) => state.user);
   const { loading } = useSelector((state) => state.alerts);

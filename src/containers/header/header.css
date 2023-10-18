@@ -1,26 +1,29 @@
+/* Your existing styles for large screens */
 .gradient_text_head {
   padding-right: 30px;
   padding-bottom: 1px;
   padding-left: 30px;
-  background: linear-gradient(131deg,#e43264,#f71c10,#f16e22);
-  background-size: 180% 180%;
-  animation: gradient-animation 3s ease infinite;
+  background:linear-gradient(145deg, #f81f01, #ee076e);
+  
+ 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Cocogoose', sans-serif;
-  font-weight: 1000;
+  font-family: 'Montserrat';
+  font-weight: 900;
   font-size: 100px;
   line-height: 100px;
+
 }
 
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+
+@media (max-width: 768px) {
+  .gradient_text_head {
+    font-size: 60px; /* Adjust the font size as needed for smaller screens */
+    line-height: 60px; /* Adjust line height accordingly */
+     padding-top: 10px;/* Adjust padding as needed */
+    text-align: start; 
   }
 }
+
+
+

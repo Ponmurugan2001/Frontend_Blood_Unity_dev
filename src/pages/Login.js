@@ -1,15 +1,22 @@
 import React from 'react'
-import { Button, Form, Input, message } from 'antd';
+import { Button, Form, Input, message ,Radio} from 'antd';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import axios from "axios"
 import { useDispatch } from 'react-redux';
 import { hideLoading, showLoading } from '../Redux/alertsSlice';
-import "./login.css"
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import './login.css'
+import logo from "../assets/logo.png";
 
 function Login() {
     const navigate = useNavigate();
     const dispatch =useDispatch();
+    const routeChangeSignIn = () => {
+        let path = "/register";
+        navigate(path);
+      };
     
 
     const REACT_BASE_URL = "https://backend-blood-unity-dev.onrender.com"
@@ -39,15 +46,26 @@ function Login() {
             
         }
     }
-    return (
-        <div className='bg'> 
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            
 
-            <Form layout="vertical"onFinish={onFinish}>
-            <h1> <img src={require('../assets/logo.png')} alt="Logo Description" /></h1>
-            
-                <div className='container'>
+  return (
+    <div className="bg">
+     
+      <div className="loginnav">
+      <div><img src={logo} alt="logo" /></div>
+        <div><a href="/landing">Home</a></div>
+      </div>
+      
+
+      <div className="menu">
+        <div className="logincolumn column1">
+          <h1>haven't registered yet! !</h1>
+        <p>Create your Blood Unity account and join a community that makes a difference. Start your journey to save lives with us today.</p>
+        <button onClick={routeChangeSignIn}>Sign up</button>
+        </div>
+        <div className="logincolumn column2">
+        <h1>Login</h1>
+        <Form layout="vertical"onFinish={onFinish}>
+           
                 <Form.Item
                     label="Email"
                     name="email"
@@ -73,19 +91,16 @@ function Login() {
                 >
                     <Input.Password style={{ width: '300px' }} />
                 </Form.Item>
-                <div className='d-flex justify-content-between'>
-                    <Link to ="/Register">Click here to Register</Link>
-                    <Button type="primary" htmlType="Login">
-                        Login
-                    </Button>
-                </div>
-                </div>
+                <Button type="primary" htmlType="Register" style={{ backgroundColor: 'rgb(250, 0, 79)', color: 'white' }}>
+  Login
+</Button>
+              
             </Form>
-
         </div>
-
-        </div>
-
-    )
+      </div>
+    </div>
+    
+  );
 }
-export default Login
+
+export default Login;

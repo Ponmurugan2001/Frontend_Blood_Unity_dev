@@ -18,7 +18,7 @@ function RecipientBloodRequest() {
   const [flaskname, setFlaskName] = useState('');
 
   useEffect(() => {
-    fetch("http://localhost:9000/api/user/profile/get-Donor-All", {
+    fetch(process.env.REACT_APP_BASE_URL+"/api/user/profile/get-Donor-All", {
       method: "GET",
       headers: {
         // Add any necessary headers here (e.g., authentication tokens)
@@ -74,7 +74,7 @@ function RecipientBloodRequest() {
       const emailData = {
         recipient: updatedFlaskEmail,
         subject: `${user.name} is in need of blood. Kindly help them.`,
-        message: `Hello ${updatedFlaskName},
+        message_body: `Hello ${updatedFlaskName},
         
       We have an urgent request for blood donation from ${user.name}. 
       
@@ -134,7 +134,7 @@ function RecipientBloodRequest() {
       <h1>Donor Profiles</h1>
       <div className="d-flex justify-content-between mb-3">
         <div className="form-group">
-          <label htmlFor="bloodGroupFilter"> Select Blood Group</label>
+          <label htmlFor="bloodGroupFilter">Select Blood Group</label>
           <select
             id="bloodGroupFilter"
             className="form-control"
@@ -165,30 +165,26 @@ function RecipientBloodRequest() {
       <div className="row">
         {filteredProfiles.map((profile, index) => (
           <div className="col-md-4 mb-4" key={profile._id}>
-            <div
-              className="card clickable-card"
-              onClick={() => handleCardClick(profile)}
-            >
-              <div className="profile-pic">
-                <img src={photo} alt="Profile" />
-              </div>
-              <div className="card-body">
-                <h5 className="card-title">{profile.Name}</h5>
-                <p className="card-text">
-                  <strong>Phone Number:</strong> {profile.phoneNumber}
+            <div className="donorcontainer">
+              <div className="donorwrapper">
+                <div className="donorbanner-image"></div>
+                <h1>Donor details</h1>
+                <p>
+                  Name: {profile.Name} <br />
+                  Email: {profile.email} <br />
+                  bloodgroup:{profile.bloodGroup}<br/>
+                  Age: {profile.Age} <br />
+                  Location: {profile.location} <br />
+                  Availability: {profile.Availability}
                 </p>
-                <p className="card-text">
-                  <strong>Blood Group:</strong> {profile.bloodGroup}
-                </p>
-                <p className="card-text">
-                  <strong>Age:</strong> {profile.Age}
-                </p>
-                <p className="card-text">
-                  <strong>Location:</strong> {profile.location}
-                </p>
-                <p className="card-text">
-                  <strong>Availability:</strong> {profile.Availability}
-                </p>
+                <div className="donorbutton-wrapper">
+                  <button
+                    className="fillaccept"
+                    onClick={() => handleCardClick(profile)}
+                  >
+                    Request blood
+                  </button>
+                </div>
               </div>
             </div>
           </div>

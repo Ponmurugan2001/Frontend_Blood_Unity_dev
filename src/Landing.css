@@ -9,16 +9,18 @@
   --color-blog: #042c54;
   --color-text: #81AFDD;
   --color-subtext: #FF8A71;
+  --neon-glow-size: 30px;
 }
 
 *{
-    box-sizing:border-box;
+    
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
 }
 .App{
   background-color: #101010;
+  
     
 }
 a {
@@ -26,57 +28,26 @@ a {
     text-decoration: none;
 }
             
-.gradient_text{
-    background: var(--gradient-text);
-    background-clip:text;
-    -webkit-background-clip:text ;
-    -webkit-text-fill-color: transparent;
-}
-.section_padding{
-    padding: 4rem 6rem;
-}
-.section_margin{
-    margin: 4rem 6rem;
-}
-.scale-up-center {
-	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
+/* Landing.css */
+/* Add these styles to Landing.css */
 
- @-webkit-keyframes scale-up-center {
-    0% {
-      -webkit-transform: scale(0.5);
-              transform: scale(0.5);
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-    }
+
+
+
+
+
+
+
+/* Apply the same adjustments for phone screens (e.g., screens with max-width: 480px) */
+@media screen and (max-width: 768px) {
+  .App{
+    background-color: #101010;
+    overflow-x: hidden;
+      
   }
-  @keyframes scale-up-center {
-    0% {
-      -webkit-transform: scale(0.5);
-              transform: scale(0.5);
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-    }
+  .gradient_bg{
+    background-color: #101010;
   }
 
-@media screen and (max-width: 700px){
-    .section_padding{
-        padding: 4rem;
-    }
-   .section_margin{
-    margin: 4rem;
-   }
 }
-@media screen and (max-width: 550px){
-    .section_padding{
-        padding: 4rem 2rem ;
-    }
-   .section_margin{
-    margin: 4rem 2rem;
-   }
-}
+

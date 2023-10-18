@@ -1,82 +1,62 @@
-.bu_navbar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  padding: 2rem 6rem;
+/* Add Poppins font to all text */
+body {
+  font-family: 'Poppins', sans-serif;
 }
-.bu_navbar_links {
-  flex: 1;
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.bu_navbar_links_logo {
-  margin-right: 1rem;
-}
-.bu_navbar_links_logo img {
-  width: 200px;
-  height: 120px;
-}
-.bu_navbar_sign {
-  flex-direction: row;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.bu_navbar_sign p {
-  margin: 0 1rem;
-  font-family: var(--font-family);
-  color: white;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 25px;
-  text-transform: capitalize;
-}
-.bu_navbar_sign p:hover {
-  color: linear-gradient(
-    90deg,
-    rgba(245, 0, 76, 1) 0%,
-    rgba(255, 79, 79, 1) 100%
-  );
-}
-.bu_navbar_sign button {
-  background-color: transparent;
-  font-family: var(--font-family);
-  color: #fff;
   padding: 10px 20px;
-  border-color: white;
-  border-radius: 8px;
-  margin: 0 1rem;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 25px;
-  text-transform: capitalize;
-}
-.bu_navbar_sign button:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(245, 0, 76, 1) 0%,
-    rgba(255, 79, 79, 1) 100%
-  );
-  border: 1px solid transparent; /* Set the border style here */
-
-  /* If you want to change the border color on hover as well, you can use the following */
-  /* border: 1px solid linear-gradient(90deg, rgba(245, 0, 76, 1) 0%, rgba(255, 79, 79, 1) 100%); */
+  background-color: transparent;
+  color: #fff;
 }
 
-@media screen and (max-width: 1050px) {
-  .bu_navbar {
-    padding: 2rem 4rem;
-  }
+.logo img {
+  height: 104px;
+  width: 150px;
 }
-@media screen and (max-width: 700px) {
-  .bu_navbar {
-    padding: 2rem 4rem;
-  }
+
+.links {
+  display: flex;
+  gap: 20px;
+  align-items: center; /* Center the links vertically */
 }
-@media screen and (max-width: 550px) {
-  .bu_navbar {
-    padding: 2rem 4rem;
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Change hover color for Contact link to pink */
+.links a:hover {
+  color:rgb(250, 0, 79);
+  text-decoration: none;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff; /* Set border to white */
+  cursor: pointer;
+}
+
+/* Make button transparent with pink text on hover */
+.btn:hover {
+  background-color:rgb(250, 0, 79);
+  color: white;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack components vertically */
+    align-items: flex-start; /* Align components to the left */
+  }
+
+  .links {
+    flex-wrap: wrap; /* Allow links to wrap to the next line */
+    margin-top: 10px; /* Add margin to separate components */
   }
 }

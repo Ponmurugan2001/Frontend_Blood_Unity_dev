@@ -1,0 +1,28 @@
+/* totalinventorylist.css */
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table th,
+.inventory-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.inventory-table th {
+  background-color: #ff4646;
+}
+
+.inventory-table tr:nth-child(even) {
+  background-color: #ffc2c2;
+}
+
+.inventory-table tr:nth-child(odd) {
+  background-color: #fca8a8;
+}
+
+.inventory-table tr:hover {
+  background-color: #f37474;
+}

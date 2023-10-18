@@ -1,35 +1,45 @@
-.blood_components {
-  display: flex;
-  justify-content:space-evenly;
-  align-items: center;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
-  font-family: var(--font-family);
-}
-.blood_item img {
-    width: 80px;
-    height: 80px;
-    
-        
-      
-}
-.blood_item {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    color: white;
-  padding-left: 30px;
-  padding-right: 30px;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
   
-  font-family: var(--font-family);
+  overflow-x: hidden;
 }
-.blood_item h{
-    padding-top: 1rem;
-    color: rgba(255, 255, 255, 0.922);
+
+.blood_components {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  padding-bottom: 200px;
+}
+
+
+.blood_item {
+  padding: 20px;
+  background-color:transparent;
+  text-align:justify;
+  max-width: calc(100% - 40px); /* Ensure components fit within the container */
+  box-sizing: border-box; /* Include padding and borders in the width */
+}
+.blood_item img{
+  height: 80px;
+}
+.blood_item h2{
+  color: white;
+  font-size: 28px;
 }
 .blood_item p{
-    
-    color: darkgrey;
-    text-align: justify;
-    font-family: var(--font-family);
-    font-size: 20px;
+  color: #a8a9b1;
+  font-size: 18px;
+  
+}
+/* Add media query for responsive layout */
+@media (max-width: 768px) {
+  .blood_components {
+    grid-template-columns: 1fr;
+    padding-bottom: 30px;
+  }
 }

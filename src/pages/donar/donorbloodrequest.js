@@ -1,34 +1,80 @@
+
+import './donorbloodrequest.css'; // Import the CSS file
+
+// const DonorBloodRequest = () => {
+//   return (
+//     <div className="donorcontainer">
+//       <div className="donorwrapper">
+//         <div className="donorbanner-image"></div>
+//         <h1>Recipient details</h1>
+//         <p>
+//           Name: {M_data?.name} <br />
+//           Email: {M_data?.email}
+//         </p>
+//       </div>
+//       <div className="donorbutton-wrapper">
+//         <button className="donorbtn outline">DETAILS</button>
+//         <button className="donorbtn fill">BUY NOW</button>
+//       </div>
+//       <div className="message-container">{message}</div>
+//     </div>
+//   );
+  
+// };
+
+// export default DonorBloodRequest;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 import { useSelector } from 'react-redux';
-import { Card, Button } from 'react-bootstrap'; // Import Bootstrap Card and Button components
-import "./donorhome.css"
+import { Card, Button } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function DonorBloodRequest() {
   const { user } = useSelector((state) => state.user);
   const [M_data, setM_data] = useState({});
+  const [message, setMessage] = useState('');
   const donorId = user?._id;
-  const [flaskemail, setFlaskEmail] = useState('');
-  const [flaskname, setFlaskName] = useState('');
 
   const profile = async () => {
     try {
       const response = await axios.get(
         process.env.REACT_APP_BASE_URL + `/api/user/profile/get-pending-appointments/${donorId}`
       );
-     
+
       if (response.data?.success) {
         setM_data(response.data.appointment.recipentInfo);
         console.log("Data received:", response.data.appointment.recipentInfo);
-        
       } else {
-        alert("No pending appointments found.");
+        setMessage("No pending appointments found.");
       }
     } catch (error) {
       console.error(error);
-      alert("Error loading pending appointments.");
+      setMessage("Error loading pending appointments.");
     }
   };
 
@@ -36,24 +82,15 @@ function DonorBloodRequest() {
     profile();
   }, [user]);
 
-  useEffect(() => {
-    console.log("M_data:", M_data); // Log the updated data when M_data changes
-  }, [M_data]);
-
   const handleAccept = async () => {
     try {
       const updatedFlaskEmail = M_data.email;
       const updatedFlaskName = M_data.name;
 
-      // Update the states
-      setFlaskEmail(updatedFlaskEmail);
-      setFlaskName(updatedFlaskName);
-
-      // Construct emailData here after updating states
       const emailData = {
         recipient: updatedFlaskEmail,
         subject: `Your Blood Donation Request Has Been Accepted`,
-        message: `Hello ${updatedFlaskName},
+        message_body: `Hello ${updatedFlaskName},
         
       We have some wonderful news to share with you! ${user.name} has accepted your blood donation request. Your lifeline is on its way!
       
@@ -74,19 +111,28 @@ function DonorBloodRequest() {
         }
       );
 
-      if (response.data?.success) {
-        await axios.post("http://localhost:5000/send_email", emailData);
-        console.log("Email sent successfully:", response.data);
-        window.alert(response.data.message);
+      if (response.data.success) {
+        setMessage(`${updatedFlaskName} has been accepted.`);
+        toast.success(`${updatedFlaskName} has been accepted.`, { autoClose: 3000 });
+        
+        axios
+          .post("http://localhost:5000/send_email", emailData)
+          .then((response) => {
+            console.log("Email sent successfully:", response.data);
+          })
+          .catch((error) => {
+            console.error("Error sending email:", error);
+          });
       } else {
-        alert("Failed to accept the appointment.");
+        setMessage("Failed to accept the appointment.");
+        toast.error("Failed to accept the appointment.", { autoClose: 3000 });
       }
     } catch (error) {
       console.error(error);
-      alert("Error accepting the appointment.");
+      setMessage("Error accepting the appointment.");
+      toast.error("Error accepting the appointment.", { autoClose: 3000 });
     }
   };
-  
 
   const handleReject = async () => {
     try {
@@ -97,35 +143,38 @@ function DonorBloodRequest() {
           status: "rejected"
         }
       );
-  
+
       if (response.data?.success) {
-        alert("Appointment has been rejected.");
-        // You can perform additional actions here if needed
+        setMessage("Appointment has been rejected.");
+        toast.success("Appointment has been rejected.", { autoClose: 3000 });
       } else {
-        alert("Failed to reject the appointment.");
+        setMessage("Failed to reject the appointment.");
+        toast.error("Failed to reject the appointment.", { autoClose: 3000 });
       }
     } catch (error) {
       console.error(error);
-      alert("Error rejecting the appointment.");
+      setMessage("Error rejecting the appointment.");
+      toast.error("Error rejecting the appointment.", { autoClose: 3000 });
     }
   };
-  
 
   return (
-    <div>
-      <Card>
-        <Card.Body>
-          <Card.Title>Name: {M_data?.name}</Card.Title>
-          <Card.Text>Email: {M_data?.email}</Card.Text>
-          <Button variant="success" onClick={handleAccept}>Accept</Button>
-          <Button variant="danger" onClick={handleReject}>Reject</Button>
-        </Card.Body>
-      </Card>
+    <div className="donorcontainer">
+      <div className="donorwrapper">
+        <div className="donorbanner-image"></div>
+        <h1>Recipient details</h1>
+        <p>
+          Name: {M_data?.name} <br />
+          Email: {M_data?.email}
+        </p>
+      </div>
+      <div className="donorbutton-wrapper">
+        <button className="fillreject" onClick={handleReject}>REJECT</button>
+        <button className="fillaccept" onClick={handleAccept}>ACCEPT</button>
+      </div>
+      <div className="message-container">{message}</div>
     </div>
   );
 }
 
 export default DonorBloodRequest;
-
-
-

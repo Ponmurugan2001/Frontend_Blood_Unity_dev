@@ -1,51 +1,89 @@
-.what_blood_mng{
-    display:flex;
-    
-    
-    background-color:#191919;
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.what_blood_mng {
+    background-color: #191919;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr; /* Two equal columns */
+    gap: 20px;
+  }
+  
+  .image {
+    grid-column: 1 / 2; /* Place the image in the first column */
+  }
+  
+  .image img {
+    height: 760px;
+    width: 500px;
+    border-radius: 15px;
+    margin-top: -100px;
+    margin-left: 80px;
+    margin-bottom: 100px;
+  }
+  
+  .about {
+    padding-top: 100px;
+    grid-column: 2 / 3; 
+    padding-right: 40px;
+    /* Place the 'about' section in the second column */
+  }
+  .about h1{
+    font-size: 60px; 
+    color: aliceblue;
+    font-weight: 700;/* Place the 'about' section in the second column */
+  }
+  .about h2{
+    font-size: 24px; 
+    color: aliceblue;
+    /* Place the 'about' section in the second column */
+  }
+  .about p{
+    font-size: 18px; 
+    color: #a8a9b1;
+    text-align:justify;
+    /* Place the 'about' section in the second column */
+  }
+  
 
-}
-.what_blood_mng img{
-    padding-left:70px;
-    padding-top:30px;
-    padding-bottom:30px;
-    height: 40rem;
-    width: 35rem;
-    border-radius:8%;
-}
-.about{
-    padding-top:4rem ;
-    padding-left: 6rem;
-    padding-right: 8rem;
-}
-.about h1{
-    color: white;
-    font-family:var(--font-family);
-    font-size:70px;
-    font-weight: 1000;
-}
-.about p{
-    color: darkgrey;
-    text-align: justify;
-    font-family: var(--font-family);
-    font-size: 20px;
-}
-.about_sub h2{
-color: white;
-font-family:var(--font-family); 
-
-}
-.about_sub{
-    display:flex;
-    justify-content:space-evenly;
+  
+  .about_sub {
+    display: grid;
+    grid-template-rows: auto auto; /* Two equal rows */
+    gap: 20px;
+  }
+  
+  .about_sub1,
+  .about_sub2 {
+    grid-column: 1 / 2; /* Each sub-section spans one column */
+  }
+  
+  /* Media query for responsive layout on smaller screens */
+  @media (max-width: 768px) {
+    .what_blood_mng {
+      grid-template-columns: 1fr;
+      padding: 20px; /* Single column layout on smaller screens */
+    }
+  
+    .image {
+      grid-column: auto; /* Reset grid column placement */
+    }
+  
+    .image img {
+      width: 90%; /* Adjust image width to fit the screen width */
+      height: auto;
+    /* Maintain aspect ratio */
+      border-radius: 15px;
+      margin-top: -0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+       /* Remove border-radius on smaller screens */
     
-    
-}
-.about_sub1{
-    padding-right: 2rem;
-    padding-top: 4rem;
-}
-.about_sub2{
-    
-    padding-top: 4rem;
-}
+  
+    .about {
+        padding-top: 0px;
+        padding-right: 0px;
+      grid-column: auto; /* Reset grid column placement */
+    }
+  }
+  

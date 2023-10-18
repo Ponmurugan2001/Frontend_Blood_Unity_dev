@@ -1,6 +1,6 @@
 import React from "react";
 import "./whatblood.css";
-import donar_img from "../../assets/donar.png";
+import donar_img from "../../assets/donor.jpg";
 function Whatblood() {
   return (
     <div className="what_blood_mng">
@@ -10,29 +10,21 @@ function Whatblood() {
       <div className="about">
         <h1>About</h1>
         <p>
-          No more worries regarding the messages and calls annoying you to
-          donate blood. Here is a user-friendly site that helps you to easily
-          contact blood banks if you are interested in donating blood.you can
-          simply register and login to our website if you feel to donate or in
-          urgent need of blood.
+        
+
+"Tired of being inundated with messages and calls urging you to donate blood? Say goodbye to the hassle and welcome a user-friendly solution. Our website allows you to effortlessly connect with blood banks when you're eager to contribute or in dire need of blood. Simply register and log in to access our services. We're here to make the process smooth and efficient.
         </p>
         <div className="about_sub">
           <div className="about_sub1">
-            <h2>How it Works?</h2>
+            <h2>Donor-Recipient Interaction</h2>
             <p>
-              we help you in filtering the messages by letting you know about
-              the current status of the patient and donation status online.every
-              time you donate, you will be given credits which will be
-              publicly visible next to your name.
+            Our platform ensures secure connections between donors and recipients, prioritizing privacy. Coordinate logistics, schedule appointments, and communicate with confidence, knowing that your data is protected. Your trust and privacy are paramount throughout the process.
             </p>
           </div>
           <div className="about_sub2">
-            <h2>How it Works?</h2>
+            <h2> Inventory Management</h2>
             <p>
-              We maintain a real time inventory of available blood units which
-              includes blood type and expiration dates. The blood bank
-              staff can monitor and regularly update the availability of
-              the blood.
+            Blood banks can optimize stock levels and track expiration dates effortlessly. Real-time updates and tools empower administrators to maintain accurate, up-to-date records, minimizing wastage.
             </p>
           </div>
         </div>

@@ -1,88 +1,187 @@
-.bu_features {
-    padding-top: 3rem;
+/* App.css (or your CSS file) */
+body {
+  font-family: "Poppins", "sans-serif";
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: row; /* Stack the grid containers vertically on smaller screens */
+}
+
+.grid-container {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.grid-item {
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.grid-item-1 {
+  flex-direction: column; /* Adjusted to 30% */
+  background-color: transparent;
+  justify-content: flex-start;
+  padding-top: 100px;
+  padding-left: 120px;
+  color: #fff; /* Set text color to white */
+}
+
+.grid-item-1 h1{
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 84.444px
+  }
+
+.grid-item-1 p {
+  color: #a8a9b1; /* Set text color to white for h1 and p elements */
+  text-align: justify; /* Center text for smaller screens */
+  font-size: 18px; /* Reduced font size for smaller screens */
+}
+
+.grid-item-2 {
+  flex: 0.7; /* Adjusted to 70% */
+  background-color: transparent;
+}
+
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2px;
+  height: 100%;
+}
+
+.sub-grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+.sub-grid-item button {
+  padding: 30px;
+  background-color: transparent;
+  
+  color: #fff;
+  border-color: transparent;
+  border-radius: 8px;
+  
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  height: 272px;
+  width: 389px;
+  position: relative; /* Added position: relative */
+}
+
+.sub-grid-item h1 {
+  padding-bottom: 10px;
+    font-size: 24px;
+  font-weight: 500;
+  line-height: 26.7406px;
+  text-align: start;
+   
+  }
+
+.sub-grid-item p {
+  color: #a8a9b1;
+  text-align:justify; /* Center text for smaller screens */
+  font-size: 18px; /* Reduced font size for smaller screens */
+}
+
+.sub-grid-item button:hover {
+  background: linear-gradient(90deg, #ff4a00 0%, #f00d4f 100%);
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.sub-grid-item button:hover p {
+  color: #fff; /* Set text color to white for <p> on button hover */
+}
+
+.sub-grid-item img {
+  height: 60px;
+  width: 40px;
+  padding-bottom: 20px;
+  align-self: flex-start; /* Align the image to the left */
+}
+
+/* Media Query for screens with a maximum width of 768px (e.g., phones) */
+@media (max-width: 1200px) {
+  .landing-page {
     display: flex;
-    justify-content: space-evenly;
-    padding-left: 1rem;
+    flex-direction:column; /* Stack the grid containers vertically on smaller screens */
+  }
+  .grid-item-1 {
+    padding-left: 20px; /* Adjusted padding-left for smaller screens */
+    padding-right: 20px; /* Adjusted padding-right for smaller screens */
+  }
+  .sub-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      1,
+      1fr
+    ); /* Changed to one column for small screens */
+    grid-template-rows: repeat(4, 1fr); /* Adjusted for four rows */
+    gap: 2px;
+    height: 100%;
+    margin: 10px;
+  }
+  .sub-grid-item img {
+    height: 40px; /* Reduced height for smaller screens */
+    width: 30px; /* Reduced width for smaller screens */
+    padding-bottom: 10px; /* Reduced padding for smaller screens */
+    align-self: center; /* Center the image for smaller screens */
+  }
+  .sub-grid-item p {
+    /* color: #a8a9b1; */
+    text-align:justify; /* Center text for smaller screens */
+    font-size: 14px; /* Reduced font size for smaller screens */
+  }
+  .sub-grid-item h1 {
+    font-size: 20px; /* Reduced font size for smaller screens */
+    font-weight: 500;
+    line-height: 22.225px; /* Adjusted line-height for smaller screens */
+    text-align: left; /* Center text for smaller screens */
   }
   
-  .bu_features button {
+  .sub-grid-item button {
+    padding: 20px; /* Reduced padding for smaller screens */
     background-color: transparent;
-    font-family: var(--font-family);
     color: #fff;
     border-color: transparent;
     border-radius: 8px;
-    margin: 2rem;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
-    height: 350px;
-    width: 350px;
+    font-size: 14px; /* Reduced font size for smaller screens */
+    line-height: 20px; /* Adjusted line-height for smaller screens */
+    height: auto; /* Adjusted height for smaller screens */
+    width: 100%; /* Make buttons full width for smaller screens */
     position: relative; /* Added position: relative */
   }
-  
-  /* Apply hover styles to the specific button with the class "new-class" */
-  .new-class button:hover {
-    background: -moz-linear-gradient(
-      90deg,
-      rgba(255, 74, 0, 1) 0%,
-      rgba(240, 13, 79, 1) 100%
-    );
-    /* Safari 5.1+, Chrome 10+ */
-    background: -webkit-linear-gradient(
-      90deg,
-      rgba(255, 74, 0, 1) 0%,
-      rgba(240, 13, 79, 1) 100%
-    );
-    /* Opera 11.10+ */
-    background: -o-linear-gradient(
-      90deg,
-      rgba(255, 74, 0, 1) 0%,
-      rgba(240, 13, 79, 1) 100%
-    );
-    /* IE 6-9 */
-    filter: progid:DXImageTransform.Microsoft.gradient(
-      startColorstr='#F00D4F',
-      endColorstr='#FF4A00',
-      GradientType=0
-    );
-    /* IE 10+ */
-    background: -ms-linear-gradient(
-      90deg,
-      rgba(255, 74, 0, 1) 0%,
-      rgba(240, 13, 79, 1) 100%
-    );
-    /* Global 94%+ browsers support */
-    background: linear-gradient(
-      90deg,
-      rgba(255, 74, 0, 1) 0%,
-      rgba(240, 13, 79, 1) 100%
-    );
+  .grid-item-1 p {
+    font-size:16px;
   }
-  
-  /* Styles for the p element inside the .new-class button on hover */
-  .new-class button:hover p {
-    color: white;
+  .grid-item-1 h1 {
+    font-family: "Poppins", "sans-serif";
+    font-size: 40px; /* Reduced font size for smaller screens */
+    font-weight: 700;
+    line-height: 56.888px; /* Adjusted line-height */
   }
-  
-  .bu_features p {
-    text-align: justify;
-    padding: 1rem;
-    color: darkgray;
+  .grid-item-1 {
+    flex-direction: column; /* Adjusted to 30% */
+    background-color: transparent;
+    justify-content: flex-start;
+    padding-top: 100px;
+    padding-left: 20px; /* Reduced padding-left for smaller screens */
+    padding-right: 20px; /* Reduced padding-right for smaller screens */
+    color: #fff; /* Set text color to white */
+     /* Center text for smaller screens */
   }
-  
-  .bu_features h1 {
-    font-size: 30px;
-    text-align: justify;
-    padding: 1rem;
-  }
-  
-  .bu_features img {
-    width: 80px;
-    height: 80px;
-  }
-  
-  /* Filter the image inside .new-class button on hover */
-  .new-class button:hover img {
-    filter: brightness(0) contrast(100);
-  }
-  
+}

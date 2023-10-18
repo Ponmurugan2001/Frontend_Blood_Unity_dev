@@ -65,22 +65,29 @@ function RecipientBloodStatus() {
   return (
     <div className="card-container">
       {appointmentStatus === "accepted" ? (
-        <Card className="card">
-          <div className="circle-photo">
-            <img src={photo} alt="Profile" />
+        <div className="col-md-4 mb-4" key={profile._id}>
+        <div className="donorcontainer">
+          <div className="donorwrapper">
+            <div className="donorbanner-image"></div>
+            <h1>Donor details</h1>
+            <p>
+              Name: {M_data?.Name} <br />
+              Email: {M_data?.email} <br />
+              Age: {M_data?.Age} <br />
+              Location: {M_data?.location} <br />
+              Phone number: {M_data?.phoneNumber}
+            </p>
+            <div className="donorbutton-wrapper">
+              <button
+                className="fillaccept"
+                onClick={handleSuccess}
+              >
+                Blood recived
+              </button>
+            </div>
           </div>
-          <Card.Body>
-            <Card.Title>Donor Details</Card.Title>
-            <>
-              <Card.Text>Name: {M_data?.Name}</Card.Text>
-              <Card.Text>Phone number: {M_data?.phoneNumber}</Card.Text>
-              <Card.Text>Location: {M_data?.location}</Card.Text>
-              <Button variant="success" onClick={handleSuccess}>
-                Blood received
-              </Button>
-            </>
-          </Card.Body>
-        </Card>
+        </div>
+      </div>
       ) : appointmentStatus === "pending" ? (
         <p>Blood donation request from {M_data?.Name} is currently pending. Once the request is accepted, we will provide you with the contact details.</p>
       ) : (

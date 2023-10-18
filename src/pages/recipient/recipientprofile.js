@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { Form, Input, Button, message } from 'antd';
-
+import "./recipientprofile.css"
 const locationOptions = [
     "Ariyalur",
     "Chengalpattu",
@@ -80,7 +80,7 @@ function RecipientProfile() {
   };
 
   return (
-    <div>
+    <div className='recipientprofile'>
       <h1>Create Recipient Profile</h1>
       <Form
         form={form}

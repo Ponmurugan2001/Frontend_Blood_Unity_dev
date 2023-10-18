@@ -1,0 +1,96 @@
+.donorcontainer {
+    margin-left: 100px;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgb(246, 239, 239);
+    border-radius: 12px;
+    height: fit-content;
+    width: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 38px;
+    filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .donorbanner-image {
+    background-image: url('../../assets/Profile.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.255);
+  }
+  .donorwrapper h1 {
+    font-family: 'Poppins', sans-serif;
+    color: rgba(255, 255, 255, 0.98);
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    color: black;
+  }
+  
+  .donorwrapper p {
+    
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    font-size: 0.8rem;
+    line-height: 150%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .donorbutton-wrapper {
+    margin-top: 18px;
+  }
+  
+  .fillreject{
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 0.8rem; /* Removed duplicate property */
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+  .fillaccept{
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 0.8rem; /* Removed duplicate property */
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+  
+  
+  
+  .fillreject {
+    background: rgba(255, 0, 0, 0.9);
+    color: rgb(255, 255, 255);
+    filter: drop-shadow(0);
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .fillreject:hover {
+    transform: scale(1.125);
+    border-color: rgba(255, 255, 255, 0.9);
+    filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
+    transition: all 0.3s ease;
+  }
+  .fillaccept {
+    background: rgb(38, 255, 0);
+    color: rgb(255, 255, 255);
+    filter: drop-shadow(0);
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .fillaccept:hover {
+    transform: scale(1.125);
+    border-color: rgba(255, 255, 255, 0.9);
+    filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
+    transition: all 0.3s ease;
+  }

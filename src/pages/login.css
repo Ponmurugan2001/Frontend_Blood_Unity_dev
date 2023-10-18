@@ -1,13 +1,104 @@
+body{
+    font-family: 'Poppins',sans-serif;
+}
 
-.bg{
-    background-image: url("../assets/red.png");
-    background-size: cover;
+  
+  .loginnav {
+    display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: black;
+  font-family: 'Poppins',sans-serif;
+  }
+  .loginnav img{
+    height: 104px;
+    width: 150px;
+    
+  }
+  .loginnav a{
+    padding-right:30px ;
+    font-weight: 500;
+    font-size: larger;
+
+  }
+  .loginnav a:hover{
+   text-decoration: none;
+   color: crimson;
+
+  }
+
+
+  
+  .menu {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logincolumn {
+    flex: 1;
+    padding: 30px;
+    
+    position: relative;
+    
+    /* Adjust the shadow properties as needed */
+  }
+  
+  .logincolumn.column1 {
+    margin-left: 15%;
+    height: 500px; 
+    background: linear-gradient(129deg, rgba(255, 0, 0, 1) 0%, rgba(233, 53, 53, 1) 50%, rgba(255, 42, 108, 1) 100%);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    box-shadow: 0 15px 20px rgba(113, 112, 112, 0.5);
+    color: white;
+    font-family:'Poppins',sans-serif;
+    align-content: center;
+    text-align: center;
+    padding-top: 100px;
+    
 }
-.container {
-    background: rgba(255, 255, 255, 0.15);; /* Gray background with 50% opacity */
-    box-shadow: 0 8px 32px 0 rgba(235, 22, 61, 0.37);
-    backdrop-filter: blur(8.5px);
-    -webkit-backdrop-filter: blur(8.5px);
-    border-radius: 10px;
-    padding: 50px;
-}
+  .logincolumn.column1 h1{
+
+    padding-bottom: 50px;
+
+  }
+  .logincolumn.column1 button{
+    background-color: transparent;
+    color: white;
+    border: 2px solid #ffffff; /* White border */
+  
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px 20px; /* Padding inside the button */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  }
+  .logincolumn.column1 button:hover{
+    background-color:rgb(250, 0, 79);
+
+  }
+  
+  .logincolumn.column2 {
+    flex-direction: column;
+    margin-right: 15%;
+    height: 500px;
+  
+    background-color:rgb(245, 245, 245);
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    box-shadow: 0 15px 20px rgba(113, 112, 112, 0.5);
+    padding-left: 100px;
+    
+  }
+  .logincolumn.column2 h1{
+    padding-bottom: 20px;
+  }

@@ -4,6 +4,7 @@ import InputType from '../../Form/InputType';
 import { useDispatch, useSelector } from "react-redux";
 import moment from 'moment';
 import axios from 'axios';
+import {message } from "antd";
 
 function OrganisationInvent() {
   const [inventoryType, setInventoryType] = useState("in");
@@ -24,7 +25,7 @@ function OrganisationInvent() {
         return alert("Please Provide All Fields");
       }
       const response = await axios.post(
-        process.env.REACT_APP_BASE_URL+"/api/user/inventory/create-inventory",
+        process.env.REACT_APP_BASE_URL + "/api/user/inventory/create-inventory",
         {
           organisation: user?._id,
           inventoryType,
@@ -38,8 +39,40 @@ function OrganisationInvent() {
         }
       );
       if (response.data?.success) {
-        alert("New Record Created");
+        message.success("New Record Created");
+        const ProfileData = await axios.get(
+          process.env.REACT_APP_BASE_URL + `/api/user/inventory/get-inventory-profile/${user?._id}`,
+          
+        );
+        if ( ProfileData.data?.success) {
+          
+            const organisationDetails= ProfileData.data.profiles[0]
+            console.log(organisationDetails)
+            
+            const TotInventory = await axios.post(
+              process.env.REACT_APP_BASE_URL + "/api/user/Totalinventory/create-Totalinventory",
+              {
+                  bloodGroup: bloodGroup,
+                  quantity: quantity,
+                  inventoryType:  inventoryType,
+                  organisation: user?._id,
+                  organisationName:organisationDetails.OrganisationName,
+
+                  phoneNumber: organisationDetails.phoneNumber,
+                  email: organisationDetails.email,
+                  Address:organisationDetails. Address,
+                  location: organisationDetails.location,
+                
+              },)
+              if ( TotInventory.data?.success) {console.log("message sent")}
+              else {console.log("error")}
+            
+            
+        }
         window.location.reload();
+
+          
+        
       }
     } catch (error) {
       alert(error.response.data.message);
@@ -47,6 +80,8 @@ function OrganisationInvent() {
       window.location.reload();
     }
   };
+  
+    
 
   const getBloodRecords = async () => {
     try {
@@ -72,9 +107,20 @@ function OrganisationInvent() {
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
-        ADD inventory
-      </Button>
+     <Button
+  className='button1'
+  variant="primary"
+  onClick={handleShow}
+  style={{
+    // Add your inline CSS properties here
+    backgroundColor: 'rgb(250, 0, 79)',
+    color: 'white',
+    borderRadius: '5px',
+    // Add more properties as needed
+  }}
+>
+  ADD inventory
+</Button>
 
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -135,12 +181,13 @@ function OrganisationInvent() {
           />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleModalSubmit}>
-            Submit
-          </Button>
+        <Button variant="secondary" onClick={handleClose} style={{ backgroundColor: 'red', color: 'white' }}>
+  Close
+</Button>
+
+<Button variant="primary" onClick={handleModalSubmit} style={{ backgroundColor: 'green', color: 'white' }}>
+  Submit
+</Button>
         </Modal.Footer>
       </Modal>
 

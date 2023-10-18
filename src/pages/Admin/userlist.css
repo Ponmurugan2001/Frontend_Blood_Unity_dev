@@ -1,0 +1,18 @@
+/* In your CSS file */
+.delete-button {
+    background-color: #ff0000; /* Red background color */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  /* userlist.css */
+table {
+    border-collapse: separate;
+    border-spacing: 10px; /* Adjust the spacing as needed */
+  }
+  
+  td, th {
+    padding: 10px; /* Adjust the padding as needed */
+  }
+  
